@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maravillas del Reino Animal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Merriweather', 'serif'],
+                    },
+                    colors: {
+                        nature: {
+                            light: '#e8f5e9',
+                            DEFAULT: '#4caf50',
+                            dark: '#2e7d32',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom scrollbar and smooth scrolling */
+        html { scroll-behavior: smooth; }
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #4caf50; border-radius: 5px; }
+        ::-webkit-scrollbar-thumb:hover { background: #2e7d32; }
+
+        /* Card hover effects */
+        .animal-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .animal-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        /* Image hover zoom */
+        .img-container {
+            overflow: hidden;
+        }
+        .img-container img {
+            transition: transform 0.5s ease;
+        }
+        .animal-card:hover .img-container img {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+
+    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex-shrink-0 flex items-center">
+                    <span class="font-serif text-2xl text-nature-dark font-bold">🐾 ReinoAnimal</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#mamiferos" class="text-gray-600 hover:text-nature-DEFAULT font-medium transition">Mamíferos</a>
+                    <a href="#aves" class="text-gray-600 hover:text-nature-DEFAULT font-medium transition">Aves</a>
+                    <a href="#reptiles" class="text-gray-600 hover:text-nature-DEFAULT font-medium transition">Reptiles</a>
+                    <a href="#curiosidades" class="text-gray-600 hover:text-nature-DEFAULT font-medium transition">Curiosidades</a>
+                </div>
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-nature-DEFAULT focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100">
+            <a href="#mamiferos" class="block px-4 py-2 text-gray-600 hover:bg-gray-50">Mamíferos</a>
+            <a href="#aves" class="block px-4 py-2 text-gray-600 hover:bg-gray-50">Aves</a>
+            <a href="#reptiles" class="block px-4 py-2 text-gray-600 hover:bg-gray-50">Reptiles</a>
+            <a href="#curiosidades" class="block px-4 py-2 text-gray-600 hover:bg-gray-50">Curiosidades</a>
+        </div>
+    </nav>
+
+    <header class="relative bg-nature-dark text-white py-32 overflow-hidden">
+        <div class="absolute inset-0 opacity-20">
+            <img src="https://placehold.co/1920x1080/2e7d32/ffffff?text=Nature+Background" alt="Background" class="w-full h-full object-cover">
+        </div>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-5xl md:text-6xl font-serif font-bold mb-6">Descubre las Maravillas del Reino Animal</h1>
+            <p class="text-xl md:text-2xl font-light mb-10 max-w-3xl mx-auto text-nature-light">Explora la diversidad de la vida en nuestro planeta, desde los veloces mamíferos hasta los coloridos reptiles.</p>
+            <a href="#mamiferos" class="inline-block bg-white text-nature-dark font-semibold px-8 py-4 rounded-full shadow-lg hover:bg-nature-light transition transform hover:scale-105">
+                Comenzar Exploración
+            </a>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        
+        <section id="mamiferos" class="mb-24 pt-16 -mt-16">
+            <h2 class="text-4xl font-serif font-bold text-gray-800 mb-2 border-b-4 border-nature-DEFAULT pb-2 inline-block">Mamíferos</h2>
+            <p class="text-gray-600 mb-10 mt-4 text-lg">Animales vertebrados de sangre caliente. La mayoría de ellos se desarrollan dentro del vientre materno.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="animal-card bg-white rounded-2xl overflow-hidden shadow-md">
+                    <div class="img-container h-64">
+                        <img src="https://placehold.co/600x400/f59e0b/ffffff?text=El+León" alt="León" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-2">El León</h3>
+                        <p class="text-gray-600">Conocido como el "rey de la selva", el león es el segundo felino más grande del mundo y un depredador excepcional.</p>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="animal-card bg-white rounded-2xl overflow-hidden shadow-md">
+                    <div class="img-container h-64">
+                        <img src="https://placehold.co/600x400/9ca3af/ffffff?text=El+Elefante" alt="Elefante" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-2">El Elefante</h3>
+                        <p class="text-gray-600">El animal terrestre más grande de la Tierra. Tienen una memoria prodigiosa y una estructura social muy compleja.</p>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="animal-card bg-white rounded-2xl overflow-hidden shadow-md">
+                    <div class="img-container h-64">
+                        <img src="https://placehold.co/600x400/3b82f6/ffffff?text=El+Delfín" alt="Delfín" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-2">El Delfín</h3>
+                        <p class="text-gray-600">Mamíferos acuáticos altamente inteligentes, conocidos por su comportamiento juguetón y su sofisticada comunicación.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="aves" class="mb-24 pt-16 -mt-16">
+            <h2 class="text-4xl font-serif font-bold text-gray-800 mb-2 border-b-4 border-nature-DEFAULT pb-2 inline-block">Aves</h2>
+            <p class="text-gray-600 mb-10 mt-4 text-lg">Vertebrados ovíparos, de sangre caliente, que caminan, saltan o se mantienen sobre extremidades posteriores.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="animal-card bg-white rounded-2xl overflow-hidden shadow-md">
+                    <div class="img-container h-64">
+                        <img src="https://placehold.co/600x400/78716c/ffffff?text=El+Águila" alt="Águila" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-2">El Águila</h3>
+                        <p class="text-gray-600">Aves de presa conocidas por su tamaño, fuerza y su increíble agudeza visual para detectar presas desde lo alto.</p>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="animal-card bg-white rounded-2xl overflow-hidden shadow-md">
+                    <div class="img-container h-64">
+                        <img src="https://placehold.co/600x400/ef4444/ffffff?text=El+Loro" alt="Loro" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-2">El Guacamayo</h3>
+                        <p class="text-gray-600">Loros de vivos colores nativos de América Central y del Sur. Son muy sociales y extremadamente ruidosos.</p>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="animal-card bg-white rounded-2xl overflow-hidden shadow-md">
+                    <div class="img-container h-64">
+                        <img src="https://placehold.co/600x400/1e40af/ffffff?text=El+Pingüino" alt="Pingüino" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-2">El Pingüino</h3>
+                        <p class="text-gray-600">Aves marinas no voladoras que habitan principalmente en el hemisferio sur. Son nadadores excepcionales.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="reptiles" class="mb-24 pt-16 -mt-16">
+            <h2 class="text-4xl font-serif font-bold text-gray-800 mb-2 border-b-4 border-nature-DEFAULT pb-2 inline-block">Reptiles</h2>
+            <p class="text-gray-600 mb-10 mt-4 text-lg">Animales de sangre fría, provistos de escamas en la piel. Tienen una increíble capacidad de adaptación.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="animal-card bg-white rounded-2xl overflow-hidden shadow-md">
+                    <div class="img-container h-64">
+                        <img src="https://placehold.co/600x400/15803d/ffffff?text=La+Iguana" alt="Iguana" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-2">La Iguana</h3>
+                        <p class="text-gray-600">Grandes lagartos herbívoros originarios de las zonas tropicales de América y el Caribe. Excelentes trepadoras.</p>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="animal-card bg-white rounded-2xl overflow-hidden shadow-md">
+                    <div class="img-container h-64">
+                        <img src="https://placehold.co/600x400/b45309/ffffff?text=La+Serpiente" alt="Serpiente" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-2">La Serpiente</h3>
+                        <p class="text-gray-600">Reptiles sin extremidades de cuerpo alargado. Algunas especies usan veneno para cazar a sus presas.</p>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="animal-card bg-white rounded-2xl overflow-hidden shadow-md">
+                    <div class="img-container h-64">
+                        <img src="https://placehold.co/600x400/166534/ffffff?text=La+Tortuga" alt="Tortuga" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-2">La Tortuga</h3>
+                        <p class="text-gray-600">Reptiles caracterizados por tener un tronco ancho y corto, y un caparazón que protege sus órganos internos.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="curiosidades" class="mb-16 pt-16 -mt-16">
+            <div class="bg-nature-light rounded-3xl p-8 md:p-16 text-center shadow-inner relative overflow-hidden">
+                <div class="relative z-10">
+                    <h2 class="text-3xl md:text-4xl font-serif font-bold text-nature-dark mb-4">¡Generador de Curiosidades!</h2>
+                    <p class="text-gray-600 mb-8 max-w-2xl mx-auto">Descubre datos fascinantes y divertidos sobre el mundo animal con solo un clic.</p>
+                    
+                    <div class="bg-white min-h-[120px] rounded-xl p-6 shadow-md max-w-3xl mx-auto flex items-center justify-center mb-8 border border-green-100">
+                        <p id="fact-display" class="text-xl md:text-2xl font-medium text-gray-800 italic">
+                            "Haz clic en el botón para revelar un secreto de la naturaleza."
+                        </p>
+                    </div>
+
+                    <button id="fact-btn" class="bg-nature-DEFAULT text-white font-bold py-4 px-8 rounded-full shadow-lg hover:bg-nature-dark transition-all transform hover:scale-105 active:scale-95">
+                        Dime una Curiosidad 🎲
+                    </button>
+                </div>
+                <!-- Decorative background elements -->
+                <div class="absolute top-0 left-0 w-32 h-32 bg-nature-DEFAULT rounded-full mix-blend-multiply filter blur-2xl opacity-20 transform -translate-x-1/2 -translate-y-1/2"></div>
+                <div class="absolute bottom-0 right-0 w-48 h-48 bg-nature-dark rounded-full mix-blend-multiply filter blur-2xl opacity-20 transform translate-x-1/4 translate-y-1/4"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-900 text-gray-300 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
+            <div class="mb-6 md:mb-0">
+                <span class="font-serif text-2xl font-bold text-white">🐾 ReinoAnimal</span>
+                <p class="mt-2 text-sm text-gray-400">Protegiendo la vida silvestre a través del conocimiento.</p>
+            </div>
+            <div class="flex space-x-6">
+                <a href="#" class="hover:text-white transition">Inicio</a>
+                <a href="#mamiferos" class="hover:text-white transition">Categorías</a>
+                <a href="#curiosidades" class="hover:text-white transition">Aprende</a>
+            </div>
+        </div>
+        <div class="mt-8 text-center text-sm text-gray-500">
+            &copy; 2026 Maravillas del Reino Animal. Creado con propósitos educativos.
+        </div>
+    </footer>
+
+    <script>
+        // Data structure for fun facts
+        const curiosidades = [
+            "Los elefantes son los únicos mamíferos que no pueden saltar.",
+            "El corazón de un colibrí puede latir hasta 1,260 veces por minuto.",
+            "Las huellas dactilares de un koala son tan parecidas a las humanas que a veces confunden en escenas del crimen.",
+            "Los pulpos tienen tres corazones y su sangre es de color azul.",
+            "Una vaca da casi 200,000 vasos de leche a lo largo de su vida.",
+            "Los pingüinos proponen matrimonio a sus parejas entregándoles una piedra perfecta.",
+            "Las jirafas tienen la misma cantidad de vértebras en el cuello que los humanos: siete.",
+            "El ojo de un avestruz es más grande que su cerebro.",
+            "Los cocodrilos no pueden sacar la lengua.",
+            "Las abejas pueden reconocer rostros humanos."
+        ];
+
+        // Elements
+        const factBtn = document.getElementById('fact-btn');
+        const factDisplay = document.getElementById('fact-display');
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        // Fun Fact Logic
+        factBtn.addEventListener('click', () => {
+            // Add a brief fade out effect
+            factDisplay.style.opacity = 0;
+            factDisplay.style.transition = 'opacity 0.2s ease';
+            
+            setTimeout(() => {
+                const randomIndex = Math.floor(Math.random() * curiosidades.length);
+                factDisplay.textContent = `"${curiosidades[randomIndex]}"`;
+                // Fade back in
+                factDisplay.style.opacity = 1;
+            }, 200);
+        });
